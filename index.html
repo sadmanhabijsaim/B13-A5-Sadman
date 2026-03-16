@@ -3,9 +3,65 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Github-Issue-Tracker</title>
+    <title>Github-Issue-Tracker</title><link rel="shortcut icon" href="./assets/github-logo.png" type="image/x-icon">
+    <!-- daisyUI CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <!-- google fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&display=swap" rel="stylesheet">
+    <!-- custom css -->
+    <link rel="stylesheet" href="./style.css">
+    <!-- fontawesome cdn  -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+        integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+
 </head>
-<body>
-    
+<body class="flex items-center justify-center min-h-screen ">
+    <section class="max-w-md w-full bg-base-100 rounded-lg shadow-lg p-8">
+        <div class="flex flex-col items-center justify-center gap-1">
+            <img src="./assets/github-logo.png" alt="" class="h-16 w-16">
+            <h2 class="text-xl font-bold">GitHub Issues Tracker</h2>
+            <p class="text-center text-sm text-[#64748B]">Sign in to manage your issues</p>
+
+        </div>
+        <form action="" class="mt-8">
+            <div class="space-y-3 mb-4">
+                <label for="username" class="">Username</label><br>
+                <input type="text" id="username" placeholder="Enter username" class="w-full rounded-md border-gray-300 p-2">
+            </div>
+            <div class="space-y-2"> 
+                <label for="password" class="">Password</label ><br>
+                <input type="password" id="password" placeholder="Enter password" class="w-full rounded-md border-gray-300 p-2">
+            </div>
+            <div class="mt-8">
+                <button id="login-btn" class="w-full btn btn-primary">Sign In</button>
+            </div>
+
+        </form>
+        <div class="flex items-center justify-center gap-2 mt-6 text-sm text-[#64748B]">
+            <hr class="flex-1 border-t border-[#64748B]">
+            <p>OR</p>
+            <hr class="flex-1 border-t border-[#64748B]">
+        </div>
+
+        <div>
+            <div class="text text-center mt-4 mb-2 text-sm text-[#64748B]">
+                <p>Demo Credentials</p>
+
+            </div>
+            <div class="w-full bg-[#F8FAFC] rounded-md p-4 text-center flex flex-col items-center justify-center gap-1">
+                <p class="text-[16px] font-semibold">Username: <span class="font-normal">admin</span></p>
+                <p class="text-[16px] font-semibold">Password: <span class="font-normal">admin123</span></p>
+            </div>
+        </div>
+
+
+    </section>
+
+    <script src="./Login-script.js"></script>
 </body>
 </html>
