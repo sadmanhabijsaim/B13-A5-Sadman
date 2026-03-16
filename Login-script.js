@@ -6,7 +6,7 @@
      const password =document.getElementById('password').value;
        if(username === 'admin' && password === 'admin123') {
            alert('Login successful!');
-           window.location.assign("./home.html");
+           window.location.assign("./home-index.html");
        } else {
            alert('Invalid username or password.');
            return;

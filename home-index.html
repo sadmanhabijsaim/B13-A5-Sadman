@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <link rel="shortcut icon" href="./assets/github-logo.png" type="image/x-icon">
+    <!-- daisyUI CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <!-- google fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&display=swap" rel="stylesheet">
+    <!-- custom css -->
+    <link rel="stylesheet" href="./style.css">
+    <!-- fontawesome cdn  -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+        integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+
+</head>
+
+<body class="bg-[#F8FAFC] min-h-screen">
+    <nav class="flex flex-col sm:flex-row items-center justify-between p-4 sm:p-6 bg-[#FFFFFF] shadow-md gap-4 sm:gap-0">
+        <div class="flex flex-col sm:flex-row items-center gap-2">
+            <img src="./assets/github-logo.png" alt="" class="w-9 h-9">
+            <p class="text-xl sm:text-2xl font-semibold">GitHub Issues Tracker</p>
+        </div>
+        <div class="flex flex-col sm:flex-row items-center gap-4 w-full sm:w-auto">
+            <label class="input w-full sm:w-auto">
+                <svg class="h-[1em] opacity-50" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                    <g stroke-linejoin="round" stroke-linecap="round" stroke-width="2.5" fill="none"
+                        stroke="currentColor">
+                        <circle cx="11" cy="11" r="8"></circle>
+                        <path d="m21 21-4.3-4.3"></path>
+                    </g>
+                </svg>
+                <input id="input-search" type="search" required placeholder="Search issues..." class="w-full" />
+            </label>
+            <button class="btn btn-primary w-full sm:w-auto">+ New Issue</button>
+        </div>
+    </nav>
+
+    <script src="./home-script.js"></script>
+</body>
