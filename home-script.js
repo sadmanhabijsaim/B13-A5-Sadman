@@ -29,3 +29,35 @@ function loadAll(){
         setActiveButton('all-btn');
     })
 }
+
+function loadOpen(){
+    manageSpinner(true);
+    fetch('https://phi-lab-server.vercel.app/api/v1/lab/issues')
+    .then(res=>res.json())
+    .then(data=>{
+        const openIssues = data.data.filter(issue => issue.status === 'open');
+        currentIssues = openIssues;
+        displayAll(openIssues);
+        setActiveButton('open-btn');
+    })
+}
+
+function loadClosed(){
+    manageSpinner(true);
+    fetch('https://phi-lab-server.vercel.app/api/v1/lab/issues')
+    .then(res=>res.json())
+    .then(data=>{
+        const closedIssues = data.data.filter(issue => issue.status === 'closed');
+        currentIssues = closedIssues;
+        displayAll(closedIssues);
+        setActiveButton('closed-btn');
+    })
+}
+
+function loadIssueDetails(id){
+    fetch(`https://phi-lab-server.vercel.app/api/v1/lab/issues/${id}`)
+    .then(res=>res.json())
+    .then(issue=>{
+        displayIssueDetails(issue.data);
+    });
+};
