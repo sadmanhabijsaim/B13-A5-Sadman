@@ -24,7 +24,7 @@
 </head>
 
 <body class="bg-[#F8FAFC] min-h-screen">
-    
+
     <nav class="flex flex-col sm:flex-row items-center justify-between p-4 sm:p-6 bg-[#FFFFFF] shadow-md gap-4 sm:gap-0">
         <div class="flex flex-col sm:flex-row items-center gap-2">
             <img src="./assets/github-logo.png" alt="" class="w-9 h-9">
@@ -66,5 +66,24 @@
         </div>
     </section>
 
+    <section id="spinner" class="flex justify-center items-center py-10 hidden">
+        <span class="loading loading-bars loading-xl"></span>
+    </section>
+
+    <section class="w-10/12 mx-auto bg-[#FBFBFB] rounded-sm shadow-sm px-4 sm:px-6 py-4 mt-[5px]">
+        <div id="card-container" class='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4'></div>
+    </section>
+
+    <div id="word_modal"
+        style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.5); z-index:1000;"
+        onclick="closeModal()">
+        <div id="details-container"
+            style="position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); background:white; padding:20px; border-radius:10px; max-width:600px; width:90%;"
+            onclick="event.stopPropagation()">
+        </div>
+    </div>
+
     <script src="./home-script.js"></script>
 </body>
+
+</html>
