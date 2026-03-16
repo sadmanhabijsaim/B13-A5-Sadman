@@ -61,3 +61,42 @@ function loadIssueDetails(id){
         displayIssueDetails(issue.data);
     });
 };
+
+function showIssueModal(id) {
+    const issue = currentIssues.find(i => i.id == id);
+    if (!issue) return;
+    const detailsContainer = document.getElementById('details-container');
+    detailsContainer.innerHTML = `
+        <div>
+            <h1 class="text-2xl font-bold">${issue.title}</h1>
+            <div class="flex items-center justify-start gap-4 mt-4">
+                <button class="btn ${issue.status === 'open' ? 'btn-success' : 'btn-secondary'} text-[#FFFFFF] rounded-full">${issue.status === 'open' ? 'Opened' : 'Closed'}</button>
+                <p class="flex items-center gap-2 text-[#64748B]">. Opened by ${issue.author}</p>
+                <p class="flex items-center gap-2 text-[#64748B]">. ${new Date(issue.createdAt).toLocaleDateString()}</p>
+            </div>
+            <div class="mt-4 flex justify-start gap-2">
+                ${issue.labels.map((label, index) => {
+                    let btnClass = 'btn btn-soft btn-outline rounded-full';
+                    if (index === 0) btnClass += ' btn-warning';
+                    else if (index === 1) btnClass += ' btn-error';
+                    return `<button class="${btnClass}">${label}</button>`;
+                }).join('')}
+            </div>
+            <p class="text-[#64748B] mt-4">${issue.description}</p>
+            <div class="grid grid-cols-2 gap-4 items-center justify-between mt-4 p-4 bg-[#64748B30] rounded-md">
+                <div>
+                    <p class="text-[#64748B]">Assignee:</p>
+                    <p>${issue.assignee}</p>
+                </div>
+                <div>
+                    <p class="text-[#64748B]">Priority:</p>
+                    <button class="btn ${issue.priority === 'high' ? 'btn-error' : issue.priority === 'medium' ? 'btn-warning' : 'btn-info'} rounded-full px-5">${issue.priority.charAt(0).toUpperCase() + issue.priority.slice(1)}</button>
+                </div>
+            </div>
+            <div class="mt-4 text-right">
+                <button class="btn" onclick="closeModal()">Close</button>
+            </div>
+        </div>
+    `;
+    document.getElementById('word_modal').style.display = 'block';
+}
