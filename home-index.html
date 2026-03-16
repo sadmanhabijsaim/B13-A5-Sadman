@@ -24,6 +24,7 @@
 </head>
 
 <body class="bg-[#F8FAFC] min-h-screen">
+    
     <nav class="flex flex-col sm:flex-row items-center justify-between p-4 sm:p-6 bg-[#FFFFFF] shadow-md gap-4 sm:gap-0">
         <div class="flex flex-col sm:flex-row items-center gap-2">
             <img src="./assets/github-logo.png" alt="" class="w-9 h-9">
@@ -43,6 +44,27 @@
             <button class="btn btn-primary w-full sm:w-auto">+ New Issue</button>
         </div>
     </nav>
+
+    <section class="">
+        <div class="flex flex-wrap items-center justify-start gap-2 sm:gap-4 px-4 sm:px-6 py-4 bg-[#FFFFFF] mt-15 w-10/12 mx-auto rounded-sm shadow-sm ">
+            <button id="all-btn" class="btn btn-primary" onclick="loadAll()">All</button>
+            <button id="open-btn" class="btn btn-outline btn-ghost btn-primary" onclick="loadOpen()">Open</button>
+            <button id="closed-btn" class="btn btn-outline btn-ghost btn-primary" onclick="loadClosed()">Closed</button>
+        </div>
+        <div class="flex flex-col sm:flex-row items-center justify-between gap-4 px-4 sm:px-6 py-4 bg-[#FFFFFF] mt-4 w-10/12 mx-auto rounded-sm shadow-sm">
+             <div class=" flex items-center justify-start gap-4 ">
+                <img src="./assets/Aperture.png" alt="">
+                <div>
+                    <h2 class="text-lg font-semibold"><span id="issue-count">0</span> Issues</h2>
+                    <p class="text-sm text-[#64748B]">Track and manage your project issues</p>
+                </div>
+            </div>
+            <div class="flex gap-2 items-center">
+                </p><i class="fa-solid fa-circle text-[#00A96E]"></i> Open</p>
+                <p><i class="fa-solid fa-circle text-[#A855F7]"></i> Closed</p>
+            </div>
+        </div>
+    </section>
 
     <script src="./home-script.js"></script>
 </body>
