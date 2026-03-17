@@ -112,8 +112,6 @@ function closeModal() {
 }
 
 const displayAll=(data)=>{
-
-    console.log(data);
     let count=document.getElementById('issue-count');
     count.innerText=data.length;
 
@@ -121,6 +119,8 @@ const displayAll=(data)=>{
     cardContainer.innerHTML="";
     data.forEach(issue => {
         const card=document.createElement('div');
+        card.className = "cursor-pointer h-full group";
+        card.onclick = () => showIssueModal(issue.id);
         card.innerHTML = `
             <div class="card shadow-sm rounded-md border-t-4 ${issue.status === 'open' ? 'border-t-[#00A96E]' : 'border-t-[#A855F7]'} bg-[#FFFFFF] p-4 flex flex-col h-full">
                 
@@ -134,14 +134,31 @@ const displayAll=(data)=>{
 
                 <div class="flex-grow">
                     <h2 class="text-lg font-bold text-[#1E293B] line-clamp-1">${issue.title}</h2>
+                    
                     <p class="text-sm text-[#64748B] mt-2 line-clamp-3 leading-relaxed">
                         ${issue.description || 'No description available.'}
                     </p>
 
                     <div class="mt-4 flex flex-wrap gap-2">
                         ${issue.labels.map((label, index) => {
-                            let styleClass = index === 0 ? 'bg-[#FEF3C7] text-[#D97706]' : 'bg-[#FEE2E2] text-[#DC2626]';
-                            return `<span class="px-3 py-1 text-[11px] font-semibold rounded-full ${styleClass}">${label}</span>`;
+                            let styleClass = '';
+                            let labelWithIcon = '';
+
+                            if (label.toLowerCase() === 'bug') {
+                                styleClass = 'bg-[#FEE2E2] text-[#DC2626]';
+                                labelWithIcon = `<i class="fa-solid fa-bug mr-1.5"></i> ${label}`;
+                            }
+
+                            else if (label.toLowerCase() === 'help wanted') {
+                                styleClass = 'bg-[#FEF3C7] text-[#D97706]';
+                                labelWithIcon = `<i class="fa-regular fa-life-ring mr-1.5"></i> ${label}`;
+                            }
+                            else {
+                                styleClass = 'bg-[#E0E7FF] text-[#4F46E5]';
+                                labelWithIcon = label;
+                            }
+                            
+                            return `<span class="flex items-center px-3 py-1 text-[11px] font-semibold rounded-full ${styleClass}">${labelWithIcon}</span>`;
                         }).join('')}
                     </div>
                 </div>
